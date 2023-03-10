@@ -6,7 +6,7 @@
 int Prompt(string message)
 {
     System.Console.WriteLine(message);
-    int a = Convert.ToInt32(System.Console.ReadLine());
+    int a = Convert.Toint32(System.Console.ReadLine());
     return a;
 
 }
@@ -113,9 +113,17 @@ ________________________________________________________________________________
 [3 7 22 2 78] -> 76
 */
 
-int[] GenerateArray(int Length)
+int Prompt(string message)
 {
-    int[] Array = new int[Length];
+    System.Console.WriteLine(message);
+    string? a = System.Console.ReadLine();
+    int b = int.Parse(a);
+    return b;
+}
+
+double[] GenerateArray(int Length)
+{
+    double[] Array = new double[Length];
     Random random = new Random();
     for (int i = 0; i < Array.Length; i++)
     {
@@ -124,7 +132,7 @@ int[] GenerateArray(int Length)
     return Array;
 }
 
-void PrintArray(int[] Array)
+void PrintArray(double[] Array)
 {
     System.Console.Write("Массив: {");
     for (int i = 0; i < Array.Length - 1; i++)
@@ -135,9 +143,9 @@ void PrintArray(int[] Array)
     System.Console.WriteLine("}");
 }
 
-int Min(int[] Array)
+double Min(double[] Array)
 {
-    int min = Array[0];
+    double min = Array[0];
     for (int i = 0; i < Array.Length; i++)
 
     {
@@ -148,9 +156,9 @@ int Min(int[] Array)
     }
     return min;
 }
-int Max(int[] Array)
+double Max(double[] Array)
 {
-    int max = Array[0];
+    double max = Array[0];
     for (int i = 0; i < Array.Length; i++)
     {
         if (Array[i] > max)
@@ -160,7 +168,8 @@ int Max(int[] Array)
     }
     return max;
 }
-int[] array = GenerateArray(5);
+int number = Prompt("Ведите размер массива");
+double[] array = GenerateArray(number);
 PrintArray(array);
 System.Console.WriteLine($"Минимальное значение = {Min(array)}");
 System.Console.WriteLine($"Максимальное значение = {Max(array)}");
